@@ -1,0 +1,26 @@
+---
+title: "Pilot analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r}
+
+data = read.csv("./sarcasm_pilot.csv")
+
+data = data %>% 
+  mutate(sarcastic = ifelse(answeryes == "true", 1, 0))
+
+
+data %>%
+  group_by(Input.context) %>%
+  summarize(sarcastic_m = mean(sarcastic)) %>%
+  ggplot(aes(x=Input.context, y=sarcastic_m)) +
+  geom_point()
+
+```
