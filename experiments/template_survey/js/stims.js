@@ -1,3 +1,3 @@
 
 
-var contexts = [ ,good,great,excellent,spectacular,genius,amazing];
+var contexts = [good,great,excellent,spectacular,genius,amazing];
